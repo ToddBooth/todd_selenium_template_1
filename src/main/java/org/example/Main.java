@@ -25,6 +25,8 @@ public class Main {
         driver.get("https://yahoo.com");
         System.out.println(driver.getTitle());
         driver.manage().deleteAllCookies();
+        // This may result in a different web page, since cookies are now deleted.
+        driver.get("https://yahoo.com");
 
         Thread.sleep(200);
         String xpath = "/html//div[@id='consent-page']/div/div//form//button[@name='agree']";
