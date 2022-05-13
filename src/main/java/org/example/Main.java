@@ -2,6 +2,7 @@ package org.example;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -14,8 +15,11 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello Selenium World.");
 
-        String xpath;
         String css;
+        String id;
+        String tagname;
+        String xpath;
+        WebElement webElement;
 
         // Chrome
         System.setProperty(DRIVER_TYPE, DRIVER_FILE);
@@ -31,6 +35,16 @@ public class Main {
         // This may result in a different web page, since cookies are now deleted.
         driver.get("https://yahoo.com");
 
+        // Here is a list of the selector types you can use:
+        // ID
+        // Name
+        // Class Name
+        // Tag Name
+        // Link Text
+        // Partial Link Text
+        // XPath
+        // CSS Selector
+
         Thread.sleep(200);
         xpath = "/html//div[@id='consent-page']/div/div//form//button[@name='agree']";
         driver.findElement(By.xpath(xpath)).click();
@@ -42,8 +56,11 @@ public class Main {
         driver.findElement(By.cssSelector(css)).click();
 
         Thread.sleep(200);
-        xpath = "//html[@id='Stencil']//a[@id='createacc']";
-        driver.findElement(By.xpath(xpath)).click();
+        id = "createacc";
+        webElement = driver.findElement(By.id(id));
+        webElement.click();
+        // xpath = "//html[@id='Stencil']//a[@id='createacc']";
+        // driver.findElement(By.xpath(xpath)).click();
 
         Thread.sleep(200);
         xpath = "//html[@id='Stencil']//input[@id='usernamereg-firstName']";
@@ -54,7 +71,7 @@ public class Main {
         driver.findElement(By.xpath(xpath)).sendKeys(
                 "Doe" +
                 Keys.TAB + "hejsan2477" +
-                Keys.TAB + "password123" +
+                Keys.TAB + "password3785dehs####" +
                 Keys.TAB + "1998");
 
         Thread.sleep(200);
@@ -65,5 +82,6 @@ public class Main {
         // Clean up manually
         driver.manage().deleteAllCookies();
         driver.close();
+        driver.quit();
     }
 }
