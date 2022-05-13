@@ -51,7 +51,8 @@ public class Main {
 
         Thread.sleep(200);
         xpath = "//html[@id='Stencil']//input[@id='usernamereg-lastName']";
-        driver.findElement(By.xpath(xpath)).sendKeys("Doe" +
+        driver.findElement(By.xpath(xpath)).sendKeys(
+                "Doe" +
                 Keys.TAB + "hejsan2477" +
                 Keys.TAB + "password123" +
                 Keys.TAB + "1998");
