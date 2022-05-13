@@ -8,8 +8,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class Main {
 
     // Chrome
-    static String DRIVER_TYPE = "webdriver.chrome.driver";
-    static String DRIVER_FILE = "./drivers/chromedriver_v101.exe";
+    static final String DRIVER_TYPE = "webdriver.chrome.driver";
+    static final String DRIVER_FILE = "./drivers/chromedriver_v101.exe";
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello Selenium World.");
@@ -21,9 +21,6 @@ public class Main {
         options.addArguments("start-maximized");
         ChromeDriver driver = new ChromeDriver(options);
 
-        // Maximizes window to show the full content (the "Try for free" button)
-        driver.manage().window().maximize();
-
         // Yahoo
         driver.get("https://yahoo.com");
         System.out.println(driver.getTitle());
@@ -34,7 +31,7 @@ public class Main {
         driver.findElement(By.xpath(xpath)).click();
 
         Thread.sleep(200);
-        xpath = "//div[@innertext='Logga in']";
+        // xpath = "//div[@innertext='Logga in']";
         // driver.findElement(By.xpath(xpath)).click();
         String css = "._yb_trcuk";
         driver.findElement(By.cssSelector(css)).click();
@@ -55,8 +52,8 @@ public class Main {
                 Keys.TAB + "1998");
 
         Thread.sleep(200);
-        xpath = "//html[@id='Stencil']//button[@id='reg-submit-button']";
         // I disabled the following so that I don't actually create a Yahoo account
+        // xpath = "//html[@id='Stencil']//button[@id='reg-submit-button']";
         // driver.findElement(By.xpath(xpath)).click();
 
         // Clean up manually
