@@ -14,6 +14,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello Selenium World.");
 
+        String xpath;
+        String css;
+
         // Chrome
         System.setProperty(DRIVER_TYPE, DRIVER_FILE);
         ChromeOptions options = new ChromeOptions();
@@ -29,13 +32,13 @@ public class Main {
         driver.get("https://yahoo.com");
 
         Thread.sleep(200);
-        String xpath = "/html//div[@id='consent-page']/div/div//form//button[@name='agree']";
+        xpath = "/html//div[@id='consent-page']/div/div//form//button[@name='agree']";
         driver.findElement(By.xpath(xpath)).click();
 
         Thread.sleep(200);
         // xpath = "//div[@innertext='Logga in']";
         // driver.findElement(By.xpath(xpath)).click();
-        String css = "._yb_trcuk";
+        css = "._yb_trcuk";
         driver.findElement(By.cssSelector(css)).click();
 
         Thread.sleep(200);
